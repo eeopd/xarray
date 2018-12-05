@@ -352,7 +352,7 @@ class ZarrStore(AbstractWritableDataStore):
             zarr.consolidate_metadata(self.ds.store)
 
 
-def open_zarr(store, group=None, synchronizer=None, auto_chunk=True,
+def open_zarr(store, group='/', synchronizer=None, auto_chunk=True,
               decode_cf=True, mask_and_scale=True, decode_times=True,
               concat_characters=True, decode_coords=True,
               drop_variables=None, consolidated=False):
@@ -373,7 +373,7 @@ def open_zarr(store, group=None, synchronizer=None, auto_chunk=True,
         directory in file system where a Zarr DirectoryStore has been stored.
     synchronizer : object, optional
         Array synchronizer provided to zarr
-    group : str, obtional
+    group : str, optional
         Group path. (a.k.a. `path` in zarr terminology.)
     auto_chunk : bool, optional
         Whether to automatically create dask chunks corresponding to each
